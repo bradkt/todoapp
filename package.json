@@ -1,0 +1,37 @@
+{
+  "name": "todoapp",
+  "version": "1.0.0",
+  "description": "CSCC 2412 Project",
+  "main": "index.php",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bradkt/todoapp.git"
+  },
+  "keywords": [
+    "lumen",
+    "api",
+    "angular"
+  ],
+  "author": "Brad Tracy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bradkt/todoapp/issues"
+  },
+  "homepage": "https://github.com/bradkt/todoapp#readme",
+  "dependencies": {
+    "bower": "^1.7.9"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-jasmine": "^2.4.2",
+    "gulp-sass": "^2.3.2",
+    "gulp-uglify": "^2.0.0",
+    "pump": "^1.0.1"
+  }
+}

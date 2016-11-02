@@ -89,7 +89,7 @@ $app->singleton(
 |
 | Next we will include the routes file so that they can all be added to
 | the application. This will provide all of the URLs the application
-| can respond to, as well as the controllers that may handle them.
+| can respond to, as well as the todo that may handle them.
 |
 */
 

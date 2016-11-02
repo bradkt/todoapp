@@ -11,33 +11,13 @@
 |
 */
 
-$app->get('/', function () use ($app) {
-    return $app->version();
+//$app->get('/', function () use ($app) {
+//    return $app->version();
+//});
+
+$app->get('/', function ()  {
+    return view('index');
 });
-
-//api for articles
-
-$app->get('api/articles', 'ArticleController@index');
-
-$app->get('api/article/{id}','ArticleController@getArticle');
-
-$app->post('api/article','ArticleController@saveArticle');
-
-$app->put('api/article/{id}','ArticleController@updateArticle');
-
-$app->delete('api/article/{id}','ArticleController@deleteArticle');
-
-//api for todos
-
-$app->get('api/todos', 'TodoController@index');
-
-$app->get('api/todo/{id}','TodoController@getTodo');
-
-$app->post('api/todo','TodoController@saveTodo');
-
-$app->put('api/todo/{id}','TodoController@updateTodo');
-
-$app->delete('api/todo/{id}','TodoController@deleteTodo');
 
 // api for users
 
@@ -50,6 +30,18 @@ $app->post('api/user','UserController@saveUser');
 $app->put('api/user/{id}','UserController@updateUser');
 
 $app->delete('api/user/{id}','UserController@deleteUser');
+
+//api for todos
+
+$app->get('api/todos', 'TodoController@index');
+
+$app->get('api/todo/{id}','TodoController@getTodo');
+
+$app->post('api/todo','TodoController@saveTodo');
+
+$app->put('api/todo/{id}','TodoController@updateTodo');
+
+$app->delete('api/todo/{id}','TodoController@deleteTodo');
 
 // api for notes
 
