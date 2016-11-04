@@ -27,13 +27,15 @@ $app->get('api/user/{id}','UserController@getUser');
 
 $app->post('api/user','UserController@saveUser');
 
-$app->put('api/user/{id}','UserController@updateUser');
+$app->put('api/user/{firstName}','UserController@updateUser');
 
 $app->delete('api/user/{id}','UserController@deleteUser');
 
 //api for todos
 
 $app->get('api/todos', 'TodoController@index');
+
+//$app->get('api/todo/{email}','TodoController@getUserTodos');
 
 $app->get('api/todo/{id}','TodoController@getTodo');
 

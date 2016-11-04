@@ -24,6 +24,14 @@ class TodoController extends Controller{
         return response()->json($todo);
     }
 
+//    public function getUserTodos($id){
+//
+//
+//        $results = Todo::select("SELECT * FROM users");
+//
+//        return response()->json($todo);
+//    }
+
     public function saveTodo(Request $request){
 
         $todo = Todo::create($request->all());
@@ -46,6 +54,7 @@ class TodoController extends Controller{
         $todo->last_update = $request->input('last_update');
         $todo->repeat_duration = $request->input('repeat_duration');
         $todo->complete = $request->input('complete');
+        $todo->user = $request->input('complete');
 
         $todo->save();
 

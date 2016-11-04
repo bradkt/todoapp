@@ -55,5 +55,11 @@ form {
   text-align: center;
   padding-bottom: 25px; }
 
+input .task {
+  width: 60%; }
+
+.repeater {
+  margin: 5px 35px; }
+
 a.close {
   float: right; }

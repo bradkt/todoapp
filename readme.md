@@ -1,4 +1,8 @@
-# Lumen PHP Framework
+*** Project updates***
+Currently considering the login auth, using angular as a SAP it makes sense to have all pages "in the app" the other option is moving the login and register pages to the lumen views and using some of the build in features. Thoughts?
+
+
+****# Lumen PHP Framework
 
 [![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
 [![Total Downloads](https://poser.pugx.org/laravel/lumen-framework/d/total.svg)](https://packagist.org/packages/laravel/lumen-framework)

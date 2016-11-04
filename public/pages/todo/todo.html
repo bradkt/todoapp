@@ -1,13 +1,25 @@
-<header>
-    <p>Repeater - Yep you have to do that...again.</p>
-</header>
+<h1>ToDo <small>List</small></h1>
+<p>Repeater - Yep you have to do that...again.</p>
 
-<div class="todo form-group">
-    <h1>ToDo <small>List</small></h1>
-    <form role="form">
-        <input type="text" class="form-control" placeholder="Your Task" name="task">
-    </form>
-    <button type="button" class="btn btn btn-primary">Add</button>
-</div>
-<div></div>
-<ul class="list-unstyled todo"></ul>
+<form ng-submit="submit()" name="tc.todoForm" class="form col-md-12 center-block">
+
+    <div class="form-group">
+        <input placeholder="My Task" class="form-control input-lg" type="text" id="task" name="task" ng-model="tc.todoData.task">
+        <span class="warning help-block" ng-show="false">Must be all letters and number</span>
+    </div>
+    <label>
+    <input class="form-control repeater" type="checkbox" name="uc" value="0" ng-model="tc.todoData.repeater.uc"> Until Complete
+    </label>
+    <label>
+    <input class="form-control repeater" type="checkbox" name="week" value="7" ng-model="tc.todoData.repeater.week"> Weekly
+    </label>
+    <label>
+    <input class="form-control repeater" type="checkbox" name="month" value="30" ng-model="tc.todoData.repeater.month"> Monthly
+    </label>
+    <label>
+    <input class="form-control repeater" type="checkbox" name="quarter" value="90" ng-model="tc.todoData.repeater.quarter"> Quarterly
+    </label>
+    <div class="form-group">
+        <button class="btn btn-primary btn-lg btn-block" type="submit" >Add</button>
+    </div>
+</form>

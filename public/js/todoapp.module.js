@@ -29,4 +29,4 @@ function config($routeProvider) {
         .otherwise({
             redirectTo: '/404'
         });
-    }
+}

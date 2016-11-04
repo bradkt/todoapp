@@ -6,25 +6,35 @@
                 <h2 class="text-center">ToDo Register</h2>
             </div>
             <div class="modal-body">
-                <form class="form col-md-12 center-block">
+                <form ng-submit="submit()" name="rc.regInfoForm" class="form col-md-12 center-block">
                     <div class="form-group">
-                        <input type="text" class="form-control input-lg" placeholder="First Name">
+                        <input type="text" class="form-control input-lg" placeholder="First Name" id="firstName" name="firstName" ng-model="rc.regInfo.firstName" required>
+                   <span class="warning help-block" ng-show="rc.regInfoForm.firstName.$touched && rc.regInfoForm.firstName.$invalid">Required</span>
                     </div>
+
                     <div class="form-group">
-                        <input type="text" class="form-control input-lg" placeholder="Last Name">
+                        <input type="text" class="form-control input-lg" placeholder="Last Name" id="lastName" name="lastName" ng-model="rc.regInfo.lastName" required>
+                    <span class="warning help-block" ng-show="rc.regInfoForm.lastName.$touched && rc.regInfoForm.lastName.$invalid">Required</span>
                     </div>
+
                     <div class="form-group">
-                        <input type="text" class="form-control input-lg" placeholder="Email">
+                        <input class="form-control input-lg" placeholder="Email" type="email" id="registerEmail" name="email" ng-model="rc.regInfo.email" required>
+                    <span class="warning help-block" ng-show="rc.regInfoForm.email.$touched && rc.regInfoForm.email.$invalid">Required</span>
                     </div>
+
                     <div class="form-group">
-                        <input type="password" class="form-control input-lg" placeholder="Password">
+                        <input type="password" class="form-control input-lg" placeholder="Password" id="password" name="password" ng-model="rc.regInfo.password" required>
+                    <span class="warning help-block" ng-show="rc.regInfoForm.password.$touched && rc.regInfoForm.password.$invalid">Required</span>
                     </div>
+
                     <div class="form-group">
-                        <input type="password" class="form-control input-lg" placeholder="Confirm Password">
+                        <input type="password" class="form-control input-lg" placeholder="Confirm Password" id="confirmPass" name="confirmPass" ng-model="rc.regInfo.confirmPass" required>
+                    <span class="warning help-block" ng-show="rc.regInfoForm.confirmPass.$touched && rc.regInfoForm.confirmPass.$invalid">Passwords should match</span>
                     </div>
+
                     <div class="form-group">
-                        <button class="btn btn-primary btn-lg btn-block">Register</button>
-                        <span class="pull-right"><a href="#">Sign In</a></span>
+                        <button class="btn btn-primary btn-lg btn-block" type="submit">Register</button>
+                        <span class="pull-right"><a href="login">Sign In</a></span>
                     </div>
                 </form>
             </div>

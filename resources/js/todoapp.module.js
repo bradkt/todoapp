@@ -30,5 +30,3 @@ function config($routeProvider) {
             redirectTo: '/404'
         });
 }
-
-//that sux

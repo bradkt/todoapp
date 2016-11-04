@@ -22,7 +22,7 @@ gulp.task('watch', function () {
 });
 
 gulp.task('uglify', function () {
-    return gulp.src('resources/*/*/*.js')
+    return gulp.src('resources/**/*/*.js')
         // .pipe(uglify())
         .pipe(gulp.dest('public/'));
 });
