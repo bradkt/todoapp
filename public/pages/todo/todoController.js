@@ -9,13 +9,29 @@ function todoController (TodoFactory, $routeParams, $scope, $cookies, $log, $tim
     var repeat_duration = 1;
     var cookieObj = $cookies.getObject('todoUserObject');
 
+
     getusertodos();
     validateUserSession();
 
     function getusertodos() {
         TodoFactory.getTodos(id).then(function (response) {
             if (response) {
-                $scope.displaytodoData = response;
+                $scope.displayUcData = [];
+                $scope.displayWeekData = [];
+                $scope.displayMonthData = [];
+                $scope.displayQuarterData = [];
+                for (i in response) {
+                    if (response[i].repeat_duration == 1) {
+                        $scope.displayUcData.push(response[i]);
+                    } else if (response[i].repeat_duration == 7) {
+                        $scope.displayWeekData.push(response[i]);
+                    } else if (response[i].repeat_duration == 30) {
+                        $scope.displayMonthData.push(response[i]);
+                    } else if (response[i].repeat_duration == 90) {
+                        $scope.displayQuarterData.push(response[i]);
+                    }
+                }
+
             } else {
                 tc.messages.error = 'error getting your todos';
                 $log.info(tc.messages);
@@ -23,7 +39,10 @@ function todoController (TodoFactory, $routeParams, $scope, $cookies, $log, $tim
         });
     }
 
-    $scope.complete = false;
+    $scope.complete = function (data) {
+        console.log($scope.strikeOut);
+        $scope.strikeOut = true;
+    };
 
     function validateUserSession () {
         var now = Math.round(new Date() / 1000);

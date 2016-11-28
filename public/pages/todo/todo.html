@@ -22,11 +22,33 @@
     <div class="form-group">
         <button class="btn btn-primary btn-lg btn-block" type="submit" >Add</button>
     </div>
-
-    <div>
-        <ul ng-repeat="data in displaytodoData">
-            <li ng-click="complete(data.id)" >{{data.todo}}  |  <span class="" ng-click="delete(data.id)">  Delete | </span><span class="" ng-click="edit(data)">  Edit  |  </span><span class="" ng-click="saveEdit()"> Save Edit</span></li>
-        </ul>
-    </div>
 </form>
+
+<div>
+    <p>Todo List</p>
+    <ul ng-repeat="data in displayUcData">
+        <li ng-click="" ng-class="{}">{{data.todo}}  |  <span class="" ng-click="delete(data.id)">  Delete | </span><span class="" ng-click="edit(data)">  Edit  |  </span><span class="" ng-click="saveEdit()"> Save Edit</span></li>
+    </ul>
+</div>
+
+<div>
+    <p>Week List</p>
+    <ul ng-repeat="data in displayWeekData">
+        <li ng-click="" ng-class="{}">{{data.todo}}</li>
+    </ul>
+</div>
+
+<div>
+    <p>Month List</p>
+    <ul ng-repeat="data in displayMonthData">
+        <li ng-click="" ng-class="{}">{{data.todo}}</li>
+    </ul>
+</div>
+
+<div>
+    <p>Quarter List</p>
+    <ul ng-repeat="data in displayQuarterData">
+        <li ng-click="" ng-class="{}">{{data.todo}}</li>
+    </ul>
+</div>
 <p class="center"><a href="/#/reset">Reset Password</a></p>
