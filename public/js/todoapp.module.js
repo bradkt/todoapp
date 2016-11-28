@@ -23,6 +23,11 @@ function config($routeProvider) {
             controller: 'regController',
             controllerAs: 'rc'
         })
+        .when('/reset', {
+            templateUrl: 'pages/reset/reset.html',
+            controller: 'resetController',
+            controllerAs: 'res'
+        })
         .when('/404', {
             templateUrl: 'pages/404.html'
         })

@@ -39,7 +39,7 @@ $app->get('api/user/{id}','UserController@getUser');
 
 $app->post('api/user','UserController@saveUser');
 
-$app->put('api/user/{firstName}','UserController@updateUser');
+$app->get('api/user/edit','UserController@updateUser');
 
 $app->delete('api/user/{id}','UserController@deleteUser');
 

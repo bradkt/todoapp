@@ -25,7 +25,7 @@
 
     <div>
         <ul ng-repeat="data in displaytodoData">
-            <li ng-class="{complete: complete}" ng-click="" >{{data.todo}}  |  <span class="" ng-click="delete(data.id)">  Delete | </span><span class="" ng-click="edit(data)">  Edit  |  </span><span class="" ng-click="saveEdit()"> Save Edit</span></li>
+            <li ng-click="complete(data.id)" >{{data.todo}}  |  <span class="" ng-click="delete(data.id)">  Delete | </span><span class="" ng-click="edit(data)">  Edit  |  </span><span class="" ng-click="saveEdit()"> Save Edit</span></li>
         </ul>
     </div>
 </form>

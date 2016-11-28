@@ -31,6 +31,7 @@
     <script src="/pages/login/loginController.js"></script>
     <script src="/pages/register/registerController.js"></script>
     <script src="/pages/todo/todoController.js"></script>
+    <script src="/pages/reset/resetController.js"></script>
     <script src="/js/main.js"></script>
 
 

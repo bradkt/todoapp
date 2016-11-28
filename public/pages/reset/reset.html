@@ -1,0 +1,33 @@
+<div id="loginModal" class="modal show" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="text-center">ToDo Reset Password</h2>
+            </div>
+            <div class="modal-body">
+                <form ng-submit="submit()" name="res.resetForm" class="form col-md-12 center-block">
+
+                    <div class="form-group">
+                        <input class="form-control input-lg" placeholder="Email" type="email" id="resEmail" name="email" ng-model="res.resetData.email" required>
+                        <span class="warning help-block" ng-show="res.resetForm.email.$touched && res.resetForm.email.$invalid">Required</span>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="password" class="form-control input-lg" placeholder="Password" id="password" name="password" ng-model="res.resetData.password" required>
+                        <span class="warning help-block" ng-show="res.resetForm.password.$touched && res.resetForm.password.$invalid">Required</span>
+                    </div>
+
+                    <div class="form-group">
+                        <button class="btn btn-primary btn-lg btn-block" type="submit" >Reset</button>
+
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="col-md-12">
+                    <span class="pull-right"><a href="/#/login">Log In</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

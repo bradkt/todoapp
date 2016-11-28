@@ -7,20 +7,21 @@ function TodoFactory($http) {
         setTodo: setTodo,
         loginUser: loginUser,
         deleteTodo: deleteTodo,
-        editTodo: editTodo
+        editTodo: editTodo,
+        editPassword: editPassword
     };
 
     function setTodo(data) {
         return $http.post('http://localhost:8888/api/todo', data).then(complete).catch(failed);
     }
 
-    // function editTodo(data) {
-    //     return $http({
-    //         url: 'http://localhost:8888/api/todo/edit',
-    //         method: "GET",
-    //         params: data
-    //     }).then(complete).catch(failed);
-    // }
+    function editPassword(data) {
+        return $http({
+            url: 'http://localhost:8888/api/user/edit',
+            method: "GET",
+            params: data
+        }).then(complete).catch(failed);
+    }
 
     function editTodo(data) {
         return $http.post('http://localhost:8888/api/todo/edit', data).then(complete).catch(failed);

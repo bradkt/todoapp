@@ -56,17 +56,13 @@ class UserController extends Controller{
         return response()->json('success');
     }
 
-    public function updateUser(Request $request, $id){
-        $user  = User::find($id);
+    public function updateUser(Request $request){
+        $email = $request->input('email');
+        $password = $request->input('password');
+        $hashedPassword = Hash::make($password);
+        DB::update('update users set password = ? where email = ?', [$hashedPassword, $email]);
 
-        $user->firstName = $request->input('firstName');
-        $user->lastName = $request->input('lastName');
-        $user->email = $request->input('email');
-        $user->password = $request->input('password');
-
-        $user->save();
-
-        return response()->json($user);
+        return 'Password Update Successful';
     }
 
     public function loginUserByEmail(Request $request){
