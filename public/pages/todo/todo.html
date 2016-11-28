@@ -4,22 +4,28 @@
 <form ng-submit="submit()" name="tc.todoForm" class="form col-md-12 center-block">
 
     <div class="form-group">
-        <input placeholder="My Task" class="form-control input-lg" type="text" id="task" name="task" ng-model="tc.todoData.task">
+        <input placeholder="My Task" class="form-control input-lg" type="text" id="todo" name="task" ng-model="tc.todoData.todo">
         <span class="warning help-block" ng-show="false">Must be all letters and number</span>
     </div>
     <label>
-    <input class="form-control repeater" type="checkbox" name="uc" value="0" ng-model="tc.todoData.repeater.uc"> Until Complete
+    <input ng-checked="checkeduc" class="form-control repeater" type="checkbox" name="uc" value="0" ng-model="tc.todoData.uc"> Until Complete
     </label>
     <label>
-    <input class="form-control repeater" type="checkbox" name="week" value="7" ng-model="tc.todoData.repeater.week"> Weekly
+    <input ng-checked="checkedWeek" class="form-control repeater" type="checkbox" name="week" value="7" ng-model="tc.todoData.week"> Weekly
     </label>
     <label>
-    <input class="form-control repeater" type="checkbox" name="month" value="30" ng-model="tc.todoData.repeater.month"> Monthly
+    <input ng-checked="checkedMonth" class="form-control repeater" type="checkbox" name="month" value="30" ng-model="tc.todoData.month"> Monthly
     </label>
     <label>
-    <input class="form-control repeater" type="checkbox" name="quarter" value="90" ng-model="tc.todoData.repeater.quarter"> Quarterly
+    <input ng-checked="checkedQuarter" class="form-control repeater" type="checkbox" name="quarter" value="90" ng-model="tc.todoData.quarter"> Quarterly
     </label>
     <div class="form-group">
         <button class="btn btn-primary btn-lg btn-block" type="submit" >Add</button>
+    </div>
+
+    <div>
+        <ul ng-repeat="data in displaytodoData">
+            <li ng-class="{complete: complete}" ng-click="" >{{data.todo}}  |  <span class="" ng-click="delete(data.id)">  Delete | </span><span class="" ng-click="edit(data)">  Edit  |  </span><span class="" ng-click="saveEdit()"> Save Edit</span></li>
+        </ul>
     </div>
 </form>

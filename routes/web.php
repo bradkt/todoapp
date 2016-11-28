@@ -15,11 +15,23 @@
 //    return $app->version();
 //});
 
+
 $app->get('/', function ()  {
     return view('index');
 });
 
+//$app->get('/test', function ()  {
+//    return view('form');
+//});
+
+
+// auth api to generate token
+
+//$app->post('auth/login', 'AuthController@postLogin');
+
 // api for users
+
+$app->post('user/login', 'UserController@loginUserByEmail');
 
 $app->get('api/users', 'UserController@index');
 
@@ -33,17 +45,15 @@ $app->delete('api/user/{id}','UserController@deleteUser');
 
 //api for todos
 
-$app->get('api/todos', 'TodoController@index');
+//$app->get('api/todos', 'TodoController@index');
 
-//$app->get('api/todo/{email}','TodoController@getUserTodos');
-
-$app->get('api/todo/{id}','TodoController@getTodo');
+$app->get('api/todos','TodoController@getTodos');
 
 $app->post('api/todo','TodoController@saveTodo');
 
-$app->put('api/todo/{id}','TodoController@updateTodo');
+$app->post('api/todo/edit','TodoController@updateTodo');
 
-$app->delete('api/todo/{id}','TodoController@deleteTodo');
+$app->get('api/todo/delete','TodoController@deleteTodo');
 
 // api for notes
 

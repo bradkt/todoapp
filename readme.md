@@ -1,5 +1,23 @@
-*** Project updates***
+*** To Install (need npm and bower install globally)***
+git clone
+npm install
+bower install
+rename db to local db
+
+*** useful commands ***
+start the server : php -S localhost:8888 -t public/
+log into mysql : mysql -u root -p
+php artisan migrate:refresh
+
+
+*** Project updates ***
 Currently considering the login auth, using angular as a SAP it makes sense to have all pages "in the app" the other option is moving the login and register pages to the lumen views and using some of the build in features. Thoughts?
+
+*** Lumen resourses ***
+https://github.com/tymondesigns/jwt-auth
+
+*** Lumen SideNotes ***
+Lumen has no built in Sesssion/Cookie helper classes
 
 
 ****# Lumen PHP Framework

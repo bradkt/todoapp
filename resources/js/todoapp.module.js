@@ -1,4 +1,4 @@
-angular.module('todoapp', ['ngRoute'])
+angular.module('todoapp', ['ngRoute', 'ngCookies'])
     .config(config);
 
 function config($routeProvider) {
@@ -8,7 +8,7 @@ function config($routeProvider) {
             controller: 'homeController',
             controllerAs: 'hc'
         })
-        .when('/mytodos', {
+        .when('/mytodos/:id', {
             templateUrl: 'pages/todo/todo.html',
             controller: 'todoController',
             controllerAs: 'tc'

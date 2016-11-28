@@ -63,3 +63,13 @@ input .task {
 
 a.close {
   float: right; }
+
+ul {
+  list-style-type: none; }
+
+li:before {
+  content: "\2610";
+  margin-right: 5px; }
+
+.complete {
+  text-decoration: line-through; }

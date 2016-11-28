@@ -8,14 +8,14 @@
             <div class="modal-body">
                 <form ng-submit="submit()" name="rc.regInfoForm" class="form col-md-12 center-block">
                     <div class="form-group">
-                        <input type="text" class="form-control input-lg" placeholder="First Name" id="firstName" name="firstName" ng-model="rc.regInfo.firstName" required>
+                        <input type="text" class="form-control input-lg" placeholder="User Name" id="name" name="name" ng-model="rc.regInfo.name" required>
                    <span class="warning help-block" ng-show="rc.regInfoForm.firstName.$touched && rc.regInfoForm.firstName.$invalid">Required</span>
                     </div>
 
-                    <div class="form-group">
-                        <input type="text" class="form-control input-lg" placeholder="Last Name" id="lastName" name="lastName" ng-model="rc.regInfo.lastName" required>
-                    <span class="warning help-block" ng-show="rc.regInfoForm.lastName.$touched && rc.regInfoForm.lastName.$invalid">Required</span>
-                    </div>
+                    <!--<div class="form-group">-->
+                        <!--<input type="text" class="form-control input-lg" placeholder="Last Name" id="lastName" name="lastName" ng-model="rc.regInfo.lastName" required>-->
+                    <!--<span class="warning help-block" ng-show="rc.regInfoForm.lastName.$touched && rc.regInfoForm.lastName.$invalid">Required</span>-->
+                    <!--</div>-->
 
                     <div class="form-group">
                         <input class="form-control input-lg" placeholder="Email" type="email" id="registerEmail" name="email" ng-model="rc.regInfo.email" required>

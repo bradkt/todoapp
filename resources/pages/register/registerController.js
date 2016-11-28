@@ -1,22 +1,27 @@
 angular.module('todoapp')
     .controller('regController', regController);
 
-function regController ($scope, TodoFactory) {
+function regController ($scope, TodoFactory, $location) {
     var rc = this;
-    console.log('regController');
     rc.regInfo = {};
+    rc.messages = {};
 
     $scope.submit = function () {
-
-        rc.areRegInfoPasswordsEqual = function () {
-            return rc.regInfo.password && rc.regInfo.password == rc.regInfo.confirmPass;
-        };
-        saveUser()
+        var data = rc.regInfo;
+        console.log(data);
+        TodoFactory.insertUser(data).then(function (response) {
+            console.log(response);
+            if (response) {
+                $location.url('login');
+            } else {
+                rc.messages.error = 'there was an error in your registraition';
+                console.log(rc.messages);
+            }
+        });
     };
 
-//? how to create optional parameters
-    function saveUser () {
-        var data = rc.regInfo;
-        TodoFactory.insertUser(data);
-    }
+    rc.areRegInfoPasswordsEqual = function () {
+        return rc.regInfo.password && rc.regInfo.password == rc.regInfo.confirmPass;
+    };
+
  }

@@ -11,6 +11,9 @@ namespace App\Http\Controllers;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+//use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\Hash;
+use DB;
 
 
 class UserController extends Controller{
@@ -33,6 +36,12 @@ class UserController extends Controller{
 
     public function saveUser(Request $request){
 
+        $this->validate($request, [
+            'email'  => 'required|unique:users',
+            'password' => 'required',
+            'name'  => 'required',
+        ]);
+
         $user = User::create($request->all());
 
         return response()->json($user);
@@ -47,18 +56,33 @@ class UserController extends Controller{
         return response()->json('success');
     }
 
-    public function updateUser(Request $request,$id){
+    public function updateUser(Request $request, $id){
         $user  = User::find($id);
 
         $user->firstName = $request->input('firstName');
         $user->lastName = $request->input('lastName');
         $user->email = $request->input('email');
-        $user->lastName = $request->input('lastName');
         $user->password = $request->input('password');
 
         $user->save();
 
         return response()->json($user);
     }
+
+    public function loginUserByEmail(Request $request){
+        $email = $request->input('email');
+        $password = $request->input('password');
+        $user = DB::table('users')->where('email', $email)->first();
+
+        if (Hash::check($password, $user->password)) {
+            return [$user->id, $user->name];
+        } else {
+            return 'guest';
+        }
+
+    }
+
+
+
 
 }
