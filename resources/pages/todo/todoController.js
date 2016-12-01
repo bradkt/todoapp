@@ -8,6 +8,7 @@ function todoController (TodoFactory, $routeParams, $scope, $cookies, $log, $tim
     tc.messages = {};
     var repeat_duration = 1;
     var cookieObj = $cookies.getObject('todoUserObject');
+    var daysInMonth = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30];
 
 
     getusertodos();
@@ -20,14 +21,17 @@ function todoController (TodoFactory, $routeParams, $scope, $cookies, $log, $tim
                 $scope.displayWeekData = [];
                 $scope.displayMonthData = [];
                 $scope.displayQuarterData = [];
+
                 for (i in response) {
-                    if (response[i].repeat_duration == 1) {
+                    $log.info(response[i]);
+                    if (response[i].repeat_duration == 1 && response[i].complete == 0) {
                         $scope.displayUcData.push(response[i]);
-                    } else if (response[i].repeat_duration == 7) {
+                    } else if (response[i].repeat_duration == 7 && response[i].complete == 0) {
+                        var weekMatch = Math.round(new Date() / 1000);
                         $scope.displayWeekData.push(response[i]);
-                    } else if (response[i].repeat_duration == 30) {
+                    } else if (response[i].repeat_duration == 30 && response[i].complete == 0) {
                         $scope.displayMonthData.push(response[i]);
-                    } else if (response[i].repeat_duration == 90) {
+                    } else if (response[i].repeat_duration == 90 && response[i].complete == 0) {
                         $scope.displayQuarterData.push(response[i]);
                     }
                 }
@@ -40,8 +44,17 @@ function todoController (TodoFactory, $routeParams, $scope, $cookies, $log, $tim
     }
 
     $scope.complete = function (data) {
-        console.log($scope.strikeOut);
-        $scope.strikeOut = true;
+        console.log(data);
+        // $scope.strikeOut = true;
+        TodoFactory.completeTodo(data).then(function (response) {
+            if (response) {
+                $log.info(response);
+                getusertodos();
+            } else {
+                $log.info('error completing this todo');
+            }
+        });
+
     };
 
     function validateUserSession () {
@@ -115,22 +128,33 @@ function todoController (TodoFactory, $routeParams, $scope, $cookies, $log, $tim
         $scope.checkeduc = false;
     }
 
-    // function getCheckedBox() {
-    //
-    //     if ($scope.checkedWeek = true) {
-    //         return 7;
-    //         $log.info("Checked fuct found 7");
-    //     } else if ($scope.checkedMonth = true) {
-    //         return 30;
-    //         $log.info("Checked fuct found 30");
-    //     } else if ($scope.checkedQuarter = true) {
-    //         return 90;
-    //         $log.info("Checked fuct found 90");
-    //     } else {
-    //         return 1;
-    //         $log.info("Checked fuct found nothing else so its 1");
-    //     }
-    // };
+    $scope.saveNote = function(id) {
+        var note = prompt("Please enter your note", "");
+        data = {
+            todo_id: id,
+            note: note
+        }
+        TodoFactory.setNote(data).then(function (response) {
+            if (response) {
+                $log.info('note saved successfully');
+            } else {
+                tc.messages.error = 'error adding note';
+                $log.info(tc.messages);
+            }
+        });
+    };
+
+    $scope.showNote = function(id) {
+        TodoFactory.getNote(id).then(function (response) {
+            if (response) {
+                // $log.info(response);
+                alert(response.note);
+            } else {
+                tc.messages.error = 'error getting note';
+                $log.info(tc.messages);
+            }
+        });
+    };
 
     $scope.edit = function (data) {
         $scope.editThisTodoID = data.id;

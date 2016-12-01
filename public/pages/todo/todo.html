@@ -1,4 +1,4 @@
-<h1>ToDo <small>List</small></h1>
+<h1>ToDo <small>List</small></h1><p ng-model="time">{{time}}</p>
 <p>Repeater - Yep you have to do that...again.</p>
 
 <form ng-submit="submit()" name="tc.todoForm" class="form col-md-12 center-block">
@@ -24,31 +24,41 @@
     </div>
 </form>
 
-<div>
+<div class="clear">
     <p>Todo List</p>
     <ul ng-repeat="data in displayUcData">
-        <li ng-click="" ng-class="{}">{{data.todo}}  |  <span class="" ng-click="delete(data.id)">  Delete | </span><span class="" ng-click="edit(data)">  Edit  |  </span><span class="" ng-click="saveEdit()"> Save Edit</span></li>
+        <li ng-click="" ng-class="{}">{{data.todo}}<span class="" ng-click="delete(data.id)">Delete</span><span class="" ng-click="edit(data)">Edit</span><span class="" ng-click="saveEdit()">Save Edit</span></li>
     </ul>
 </div>
 
-<div>
-    <p>Week List</p>
+<div class="clear">
+    <p>Todo Weekly</p>
     <ul ng-repeat="data in displayWeekData">
-        <li ng-click="" ng-class="{}">{{data.todo}}</li>
+        <li ng-class="{}">{{data.todo}}<span class="" ng-click="complete(data.id)">Complete</span>
+            <span class="" ng-click="showNote(data.id)">Get Note</span>
+            <span class="" ng-click="saveNote(data.id)">Save Note</span>
+        </li>
+
     </ul>
 </div>
 
-<div>
-    <p>Month List</p>
+<div class="clear">
+    <p>Todo Monthly</p>
     <ul ng-repeat="data in displayMonthData">
-        <li ng-click="" ng-class="{}">{{data.todo}}</li>
+        <li ng-class="{}">{{data.todo}}<span class="" ng-click="complete(data.id)">Complete</span>
+            <span class="" ng-click="showNote(data.id)">Get Note</span>
+            <span class="" ng-click="saveNote(data.id)">Save Note</span>
+        </li>
     </ul>
 </div>
 
-<div>
-    <p>Quarter List</p>
+<div class="clear">
+    <p>Todo Quarterly</p>
     <ul ng-repeat="data in displayQuarterData">
-        <li ng-click="" ng-class="{}">{{data.todo}}</li>
+        <li ng-class="{}">{{data.todo}}<span class="" ng-click="complete(data.id)">Complete</span>
+            <span class="" ng-click="showNote(data.id)">Get Note</span>
+            <span class="" ng-click="saveNote(data.id)">Save Note</span>
+        </li>
     </ul>
 </div>
-<p class="center"><a href="/#/reset">Reset Password</a></p>
+<p class="clear"><a href="/#/reset">Reset Password</a></p>

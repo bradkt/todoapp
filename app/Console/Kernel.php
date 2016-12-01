@@ -4,6 +4,7 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Laravel\Lumen\Console\Kernel as ConsoleKernel;
+use DB;
 
 class Kernel extends ConsoleKernel
 {
@@ -24,6 +25,24 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        //
+        $schedule->call(function()
+        {
+            DB::update('update todos set complete = ? where repeat_duration = ?', [0,7]);
+
+        })->mondays();
+
+        $schedule->call(function()
+        {
+            DB::update('update todos set complete = ? where repeat_duration = ?', [0,30]);
+
+        })->monthly();
+
+        $schedule->call(function()
+        {
+            DB::update('update todos set complete = ? where repeat_duration = ?', [0,90]);
+
+        })->quarterly();
     }
+
+
 }

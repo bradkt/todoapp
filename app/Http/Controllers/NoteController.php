@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Note;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use DB;
 
 
 class NoteController extends Controller{
@@ -17,10 +18,9 @@ class NoteController extends Controller{
 
     }
 
-    public function getNote($id){
-
-        $note  = Note::find($id);
-
+    public function getNote(Request $request){
+        $id = $request->input('id');
+        $note = DB::table('notes')->where('todo_id', $id)->first();
         return response()->json($note);
     }
 

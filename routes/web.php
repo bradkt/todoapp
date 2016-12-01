@@ -53,16 +53,23 @@ $app->post('api/todo','TodoController@saveTodo');
 
 $app->post('api/todo/edit','TodoController@updateTodo');
 
+$app->post('api/todo/complete','TodoController@completeTodo');
+
 $app->get('api/todo/delete','TodoController@deleteTodo');
+
+//mock cron job by hitting endpoint
+
+$app->get('api/todo/cron','TodoController@resetCompleted');
 
 // api for notes
 
-$app->get('api/notes', 'NoteController@index');
+$app->get('api/notes/all', 'NoteController@index');
 
-$app->get('api/note/{id}','NoteController@getNote');
+$app->get('api/note/one','NoteController@getNote');
 
 $app->post('api/note','NoteController@saveNote');
 
 $app->put('api/note/{id}','NoteController@updateNote');
 
 $app->delete('api/note/{id}','NoteController@deleteNote');
+

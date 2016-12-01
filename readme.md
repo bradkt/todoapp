@@ -1,32 +1,24 @@
 *** To Install (need npm and bower install globally)***
-git clone
-npm install
-bower install
-rename db to local db
+#git clone
+#npm install
+#bower install
+#rename db to local db
 
 *** useful commands ***
-start the server : php -S localhost:8888 -t public/
-log into mysql : mysql -u root -p
-php artisan migrate:refresh
+#start the server : php -S localhost:8888 -t public/
+#log into mysql : mysql -u root -p
+#php artisan migrate:refresh
 
 
 *** Project updates ***
-Currently considering the login auth, using angular as a SAP it makes sense to have all pages "in the app" the other option is moving the login and register pages to the lumen views and using some of the build in features. Thoughts?
+#considering a cron job to check repeaters for complete and decide if it should be updated  to not complete
 
 *** Lumen resourses ***
-https://github.com/tymondesigns/jwt-auth
+#https://github.com/tymondesigns/jwt-auth
 
 *** Lumen SideNotes ***
-Lumen has no built in Sesssion/Cookie helper classes
-
-
-****# Lumen PHP Framework
-
-[![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
-[![Total Downloads](https://poser.pugx.org/laravel/lumen-framework/d/total.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/lumen-framework/v/stable.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/lumen-framework/v/unstable.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![License](https://poser.pugx.org/laravel/lumen-framework/license.svg)](https://packagist.org/packages/laravel/lumen-framework)
+#Lumen has no built in Sesssion/Cookie helper classes
+#php artisan list
 
 Laravel Lumen is a stunningly fast PHP micro-framework for building web applications with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Lumen attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as routing, database abstraction, queueing, and caching.
 

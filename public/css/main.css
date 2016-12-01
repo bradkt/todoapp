@@ -58,7 +58,7 @@ form {
 input .task {
   width: 60%; }
 
-.repeater {
+input .repeater {
   margin: 5px 35px; }
 
 a.close {
@@ -73,3 +73,12 @@ li:before {
 
 .strikeOut {
   text-decoration: line-through; }
+
+span {
+  float: right;
+  margin: 5px 8px;
+  border-left: 2px;
+  cursor: pointer; }
+
+.clear {
+  clear: both; }
