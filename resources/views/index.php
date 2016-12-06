@@ -17,9 +17,14 @@
 
 
     <!--vender scripts-->
-    <script src="/vendors/angular/angular.min.js"></script>
+
+
+    <script src="/vendors/angular/angular.js"></script>
+    <script src="/vendors/jquery/dist/jquery.min.js"></script>
     <script src="/vendors/angular-route/angular-route.min.js"></script>
     <script src="/vendors/angular-cookies/angular-cookies.min.js"></script>
+    <script src="/vendors/ng-file-upload/ng-file-upload.js"></script>
+
 <!--    <script src="/vendors/moment/min/moment.min.js"></script>-->
 <!--    <script src="/vendors/angular-momentjs/angular-momentjs.js"></script>-->
 

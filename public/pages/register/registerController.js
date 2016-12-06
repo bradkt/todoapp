@@ -8,7 +8,6 @@ function regController ($scope, TodoFactory, $location) {
 
     $scope.submit = function () {
         var data = rc.regInfo;
-        console.log(data);
         TodoFactory.insertUser(data).then(function (response) {
             console.log(response);
             if (response) {

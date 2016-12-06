@@ -12,8 +12,37 @@ function TodoFactory($http) {
         completeTodo: completeTodo,
         resetCompleted: resetCompleted,
         setNote: setNote,
-        getNote: getNote
+        getNote: getNote,
+        // saveImage: saveImage,
+        getImage: getImage
     };
+
+    // function saveImage(data) {
+    //     return $http.post('http://localhost:8888/api/post/image/multi', data).then(complete).catch(failed);
+    // }
+
+    function getImage(data) {
+        return $http({
+            url: 'http://localhost:8888/api/get/image',
+            method: "GET",
+            params: {'id': data },
+            responseType: 'arraybuffer'
+        }).then(complete).catch(failed);
+
+        //
+        // $http({
+        //     method: 'GET',
+        //     url: 'http://localhost:8888/api/get/image',
+        //     responseType: 'arraybuffer'
+        // }).then(function(response) {
+        //     console.log(response);
+        //     var str = _arrayBufferToBase64(response.data);
+        //     console.log(str);
+        //     // str is base64 encoded.
+        // }, function(response) {
+        //     console.error('error in getting static img.');
+        // });
+    }
 
     function setTodo(data) {
         return $http.post('http://localhost:8888/api/todo', data).then(complete).catch(failed);

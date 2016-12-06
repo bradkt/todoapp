@@ -1,4 +1,5 @@
-<h1>ToDo <small>List</small></h1><p ng-model="time">{{time}}</p>
+<h1>ToDo <small>List</small></h1>
+<img ng-model="profileImage" id="profileImage" src="images/buck.jpg" alt="Smiley face" width="42" height="42">
 <p>Repeater - Yep you have to do that...again.</p>
 
 <form ng-submit="submit()" name="tc.todoForm" class="form col-md-12 center-block">
@@ -62,3 +63,22 @@
     </ul>
 </div>
 <p class="clear"><a href="/#/reset">Reset Password</a></p>
+
+<hr>
+
+<div class="row">
+    <h4>Upload on file select</h4>
+    <button type="file" ngf-select="uploadFiles($file, $invalidFiles)"
+            accept="image/*" ngf-max-height="1000" ngf-max-size="1MB">
+        Select File</button>
+    <br><br>
+    File:
+    <div style="">{{f.name}} {{errFile.name}} {{errFile.$error}} {{errFile.$errorParam}}
+        <span class="progress" ng-show="f.progress >= 0">
+      <div style="width:{{f.progress}}%"
+           ng-bind="f.progress + '%'"></div>
+  </span>
+    </div>
+    {{errorMsg}}
+</div>
+

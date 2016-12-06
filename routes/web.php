@@ -31,7 +31,18 @@ $app->get('/', function ()  {
 
 // api for users
 
+
 $app->post('user/login', 'UserController@loginUserByEmail');
+
+//$app->post('api/image', 'UserController@saveImage');
+
+$app->post('api/post/image/multi', 'FileEntryController@saveFile');
+$app->get('api/get/image', 'FileEntryController@getFile');
+$app->get('api/public/image', 'FileEntryController@viewImage');
+$app->get('view/{filename}', 'FileEntryController@viewFile');
+$app->get('delete/{filename}', 'FileEntryController@deleteFile');
+
+//$app->get('api/image', 'UserController@getImage');
 
 $app->get('api/users', 'UserController@index');
 
@@ -73,3 +84,10 @@ $app->put('api/note/{id}','NoteController@updateNote');
 
 $app->delete('api/note/{id}','NoteController@deleteNote');
 
+//files
+
+//$app->get('fileentry', 'FileEntryController@index');
+//$app->get('fileentry/get/{filename}', [
+//    'as' => 'getentry', 'uses' => 'FileEntryController@get']);
+//$app->post('fileentry/add',[
+//    'as' => 'addentry', 'uses' => 'FileEntryController@add']);

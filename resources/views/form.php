@@ -8,8 +8,9 @@
     <title>Document</title>
 </head>
 <body>
-<form action="/auth/login" method="post">
-    <input type="text" name="name" placeholder="Name">
-    <input type="submit"></form>
+<form action="fileentry/add" method="post" enctype="multipart/form-data">
+    <input type="file" name="filefield">
+    <input type="submit">
+</form>
 </body>
 </html>

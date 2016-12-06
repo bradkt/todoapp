@@ -1,18 +1,83 @@
 angular.module('todoapp')
     .controller('todoController', todoController);
 
-function todoController (TodoFactory, $routeParams, $scope, $cookies, $log, $timeout, $location) {
+function todoController (TodoFactory, $routeParams, $scope, $cookies, $log, $timeout, $location, $http, Upload) {
     var tc = this;
     var id = $routeParams.id;
     tc.todoData = {};
     tc.messages = {};
     var repeat_duration = 1;
     var cookieObj = $cookies.getObject('todoUserObject');
-    var daysInMonth = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30];
-
 
     getusertodos();
     validateUserSession();
+    // getProfileImage();
+
+    $scope.uploadFiles = function(file, errFiles) {
+        $scope.f = file;
+        $scope.errFile = errFiles && errFiles[0];
+        if (file) {
+            file.upload = Upload.upload({
+                url: 'http://localhost:8888/api/post/image/multi',
+                data: {
+                    file: file,
+                    'id': id
+                }
+            });
+
+            file.upload.then(function (response) {
+                $timeout(function () {
+                    file.result = response.data;
+                });
+            }, function (response) {
+                if (response.status > 0)
+                    $scope.errorMsg = response.status + ': ' + response.data;
+            }, function (evt) {
+                file.progress = Math.min(100, parseInt(100.0 *
+                    evt.loaded / evt.total));
+            });
+        }
+    };
+
+    //  function getProfileImage() {
+    //     TodoFactory.getImage(id).then(function (response) {
+    //         if (response) {
+    //             console.log(response);
+    //                 var str = _arrayBufferToBase64(response.data);
+    //                 console.log(str);
+    //                 // str is base64 encoded.
+    //             $("#profileImage").attr("src", str);
+    //         } else {
+    //             $log.info('error getting image');
+    //         }
+    //     })
+    // };
+
+    // $http({
+    //     method: 'GET',
+    //     url: 'http://localhost:8888/api/get/image',
+    //     params: {'id': id },
+    //     responseType: 'arraybuffer'
+    // }).then(function(response) {
+    //     console.log(response);
+    //     var str = _arrayBufferToBase64(response.data);
+    //     console.log(str);
+    //     $("#profileImage").attr("src", str);
+    //     // str is base64 encoded.
+    // }, function(response) {
+    //     console.error('error in getting static img.');
+    // });
+
+
+    // function _arrayBufferToBase64(buffer) {
+    //     var binary = '';
+    //     var bytes = new Uint8Array(buffer);
+    //     var len = bytes.byteLength;
+    //     for (var i = 0; i < len; i++) {
+    //         binary += String.fromCharCode(bytes[i]);
+    //     }
+    //     return window.btoa(binary);
+    // }
 
     function getusertodos() {
         TodoFactory.getTodos(id).then(function (response) {
@@ -212,9 +277,37 @@ function todoController (TodoFactory, $routeParams, $scope, $cookies, $log, $tim
 
         clearCheckboxes();
         tc.todoData.todo = "";
-    }
+    };
 
+    $scope.uploadImage = function() {
+        var profileImage = document.getElementById("profileImage").files[0];
+
+        if (window.File && window.FileReader && window.FileList && window.Blob) {
+
+            // var path = (window.URL || window.webkitURL).createObjectURL(profileImage);
+            // console.log('path', path);
+
+            // var preview = document.getElementById('img');
+
+            var fr = new FileReader();
+
+            fr.addEventListener("load", function () {
+
+                $("#image").attr("src", fr.result);
+                // data = {image: profileImage}
+                TodoFactory.saveImage(profileImage);
+
+            }, false);
+
+            if (profileImage) {
+                fr.readAsDataURL(profileImage);
+            }
+        } else {
+            alert('The File APIs are not fully supported in this browser.');
+        }
+    };
 }
+
 
 
 

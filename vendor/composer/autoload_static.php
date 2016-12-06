@@ -58,6 +58,7 @@ class ComposerStaticInit5cdfc6bec130c9d95392fcbc02b01661
         ),
         'L' => 
         array (
+            'League\\Flysystem\\' => 17,
             'Laravel\\Lumen\\' => 14,
         ),
         'I' => 
@@ -180,6 +181,10 @@ class ComposerStaticInit5cdfc6bec130c9d95392fcbc02b01661
         'Monolog\\' => 
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
+        ),
+        'League\\Flysystem\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/league/flysystem/src',
         ),
         'Laravel\\Lumen\\' => 
         array (
@@ -336,6 +341,7 @@ class ComposerStaticInit5cdfc6bec130c9d95392fcbc02b01661
 
     public static $classMap = array (
         'CreateArticlesTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_25_171550_create_articles_table.php',
+        'CreateFileentriesTable' => __DIR__ . '/../..' . '/database/migrations/2016_12_05_154428_create_fileentries_table.php',
         'CreateNotesTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_25_211802_create_notes_table.php',
         'CreateTodosTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_25_211722_create_todos_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_25_164623_create_users_table.php',

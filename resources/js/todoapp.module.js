@@ -1,4 +1,4 @@
-angular.module('todoapp', ['ngRoute', 'ngCookies'])
+angular.module('todoapp', ['ngRoute', 'ngCookies', 'ngFileUpload'])
     .config(config);
 
 function config($routeProvider) {

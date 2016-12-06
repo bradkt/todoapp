@@ -14,7 +14,8 @@ use Illuminate\Http\Request;
 //use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Hash;
 use DB;
-
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 class UserController extends Controller{
 
@@ -78,7 +79,52 @@ class UserController extends Controller{
 
     }
 
+    public function saveImage(Request $request){
+//        $image = $request->input('image')->encode('jpg', 80);
+        $image = $request->input('image');
+        $id = $request->input('id');
+//        $user = DB::table('users')->where('id', $id)->first();
 
+        DB::update('update users set image = ? where id = ?', [$image, $id]);
+
+//        if (Hash::check($password, $user->password)) {
+//            return [$user->id, $user->name];
+//        } else {
+            return 'Thats an image for ya';
+//        }
+
+
+
+    }
+
+//    public function saveFile() {
+//
+//        $file = Request::file('file');
+//        Storage::put(File::get($file));
+//
+//        return response()->json('success');
+//    }
+//
+//    public function deleteFile($name) {
+//        Storage::delete($name);
+//        return response()->json('success');
+//    }
+//
+//    public function getFileList() {
+//
+//        $files = Storage::files('/');
+//        return response()->json($files);
+//
+//    }
+//
+//    public function viewFile($name){
+//
+//        return response()->make(Storage::get($name), 200, [
+//            'Content-Type' => Storage::mimeType($name),
+//            'Content-Disposition' => 'inline; '.$name,
+//        ]);
+//
+//    }
 
 
 }
