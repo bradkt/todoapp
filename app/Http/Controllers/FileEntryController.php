@@ -15,8 +15,9 @@ class FileEntryController extends Controller {
 
         $id = $request->input('id');
 //        print_r($request->all());
-        $user = DB::table('users')->where('id', $id)->first();
-        $fileName = $user->name . '.jpg';
+//        $user = DB::table('users')->where('id', $id)->first();
+//        $fileName = $user->name . '.jpg';
+        $fileName = $id . '.jpg';
 
         $files = $request->all();
         $image = end($files);

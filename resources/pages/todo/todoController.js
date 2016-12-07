@@ -11,7 +11,7 @@ function todoController (TodoFactory, $routeParams, $scope, $cookies, $log, $tim
 
     getusertodos();
     validateUserSession();
-    // getProfileImage();
+    setProfileImage();
 
     $scope.uploadFiles = function(file, errFiles) {
         $scope.f = file;
@@ -39,19 +39,10 @@ function todoController (TodoFactory, $routeParams, $scope, $cookies, $log, $tim
         }
     };
 
-    //  function getProfileImage() {
-    //     TodoFactory.getImage(id).then(function (response) {
-    //         if (response) {
-    //             console.log(response);
-    //                 var str = _arrayBufferToBase64(response.data);
-    //                 console.log(str);
-    //                 // str is base64 encoded.
-    //             $("#profileImage").attr("src", str);
-    //         } else {
-    //             $log.info('error getting image');
-    //         }
-    //     })
-    // };
+     function setProfileImage() {
+         var image = 'images/' + id + '.jpg';
+        $("#profileImage").attr("src", image);
+    };
 
     // $http({
     //     method: 'GET',
