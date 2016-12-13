@@ -2,7 +2,7 @@
 #git clone
 #npm install
 #bower install
-#rename db to local db
+#rename db to local db || php artisan migrate
 
 *** useful commands ***
 #start the server : php -S localhost:8888 -t public/
@@ -12,6 +12,7 @@
 
 *** Project updates ***
 #considering a cron job to check repeaters for complete and decide if it should be updated  to not complete
+mock cron job: get 'api/todo/cron' and pass repeater (7,30,90)
 
 *** Lumen resourses ***
 #https://github.com/tymondesigns/jwt-auth

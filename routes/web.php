@@ -20,17 +20,6 @@ $app->get('/', function ()  {
     return view('index');
 });
 
-//$app->get('/test', function ()  {
-//    return view('form');
-//});
-
-
-// auth api to generate token
-
-//$app->post('auth/login', 'AuthController@postLogin');
-
-// api for users
-
 
 $app->post('user/login', 'UserController@loginUserByEmail');
 
@@ -40,7 +29,7 @@ $app->post('api/post/image/multi', 'FileEntryController@saveFile');
 $app->get('api/get/image', 'FileEntryController@getFile');
 $app->get('api/public/image', 'FileEntryController@viewImage');
 $app->get('view/{filename}', 'FileEntryController@viewFile');
-$app->get('delete/{filename}', 'FileEntryController@deleteFile');
+//$app->get('delete/{filename}', 'FileEntryController@deleteFile');
 
 //$app->get('api/image', 'UserController@getImage');
 
@@ -83,11 +72,3 @@ $app->post('api/note','NoteController@saveNote');
 $app->put('api/note/{id}','NoteController@updateNote');
 
 $app->delete('api/note/{id}','NoteController@deleteNote');
-
-//files
-
-//$app->get('fileentry', 'FileEntryController@index');
-//$app->get('fileentry/get/{filename}', [
-//    'as' => 'getentry', 'uses' => 'FileEntryController@get']);
-//$app->post('fileentry/add',[
-//    'as' => 'addentry', 'uses' => 'FileEntryController@add']);

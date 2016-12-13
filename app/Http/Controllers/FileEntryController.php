@@ -17,7 +17,7 @@ class FileEntryController extends Controller {
 //        print_r($request->all());
 //        $user = DB::table('users')->where('id', $id)->first();
 //        $fileName = $user->name . '.jpg';
-        $fileName = $id . '.jpg';
+        $fileName = $id . '.png';
 
         $files = $request->all();
         $image = end($files);
@@ -32,7 +32,7 @@ class FileEntryController extends Controller {
         $id = $request->input('id');
         $user = DB::table('users')->where('id', $id)->first();
         $fileName = $user->name;
-        $path = storage_path() . '/app/public/' . $fileName . '.jpg';
+        $path = storage_path() . '/app/public/' . $fileName . '.png';
 
 //        if(!File::exists($path)) abort(404);
 

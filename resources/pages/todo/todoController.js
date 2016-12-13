@@ -40,35 +40,9 @@ function todoController (TodoFactory, $routeParams, $scope, $cookies, $log, $tim
     };
 
      function setProfileImage() {
-         var image = 'images/' + id + '.jpg';
+         var image = 'images/' + id + '.png';
         $("#profileImage").attr("src", image);
     };
-
-    // $http({
-    //     method: 'GET',
-    //     url: 'http://localhost:8888/api/get/image',
-    //     params: {'id': id },
-    //     responseType: 'arraybuffer'
-    // }).then(function(response) {
-    //     console.log(response);
-    //     var str = _arrayBufferToBase64(response.data);
-    //     console.log(str);
-    //     $("#profileImage").attr("src", str);
-    //     // str is base64 encoded.
-    // }, function(response) {
-    //     console.error('error in getting static img.');
-    // });
-
-
-    // function _arrayBufferToBase64(buffer) {
-    //     var binary = '';
-    //     var bytes = new Uint8Array(buffer);
-    //     var len = bytes.byteLength;
-    //     for (var i = 0; i < len; i++) {
-    //         binary += String.fromCharCode(bytes[i]);
-    //     }
-    //     return window.btoa(binary);
-    // }
 
     function getusertodos() {
         TodoFactory.getTodos(id).then(function (response) {
@@ -274,18 +248,11 @@ function todoController (TodoFactory, $routeParams, $scope, $cookies, $log, $tim
         var profileImage = document.getElementById("profileImage").files[0];
 
         if (window.File && window.FileReader && window.FileList && window.Blob) {
-
-            // var path = (window.URL || window.webkitURL).createObjectURL(profileImage);
-            // console.log('path', path);
-
-            // var preview = document.getElementById('img');
-
             var fr = new FileReader();
 
             fr.addEventListener("load", function () {
 
                 $("#image").attr("src", fr.result);
-                // data = {image: profileImage}
                 TodoFactory.saveImage(profileImage);
 
             }, false);
